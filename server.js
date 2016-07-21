@@ -4,7 +4,7 @@ var PORT = 3000
 var app = express()
 
 app.get('/', function(req, res) {
-  res.send("Welcome to the index!")
+  res.sendFile(__dirname + '/index.html')
 })
 
 app.listen(3000, function(req, res) {
