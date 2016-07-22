@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "dev-debug": "node-inspector & nodemon --debug server.js",
+    "test": "tape tests/index.js | tap-spec"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +16,9 @@
     "express": "^4.14.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0"
+  },
+  "devDependencies": {
+    "node-inspector": "^0.12.8",
+    "nodemon": "^1.9.2"
   }
 }

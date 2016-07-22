@@ -1,23 +1,18 @@
 var express = require('express')
+var routes = require('./routes')
 
 var PORT = 3000
 var app = express()
+var testVar = 'cat'
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html')
-})
+
+app.get('/', routes.index)
 
 app.get('/querytest/:id', function(req, res) {
-  console.log(req.url)
-  console.log(req.params)
   res.send(req.params.id)
 })
 
-app.get('/savetolocal', function(req, res) {
-   console.log(req.app.locals);
-   req.app.locals.adds = 10 + 2
-   console.log(req.app.locals);
-})
+app.get('/savetolocal', routes.storeId)
 
 app.listen(3000, function(req, res) {
   console.log('The server is listening on port', PORT)
