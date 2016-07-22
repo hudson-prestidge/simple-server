@@ -1,7 +1,7 @@
 var test = require('tape')
 var routes = require('../routes')
 
-test('can save variables into locals on the server', function(t) {
+test('routes.storeId stores an id query in locals', function(t) {
   var req = {
     query: {
       id: 3
@@ -16,4 +16,15 @@ test('can save variables into locals on the server', function(t) {
   routes.storeId(req, null)
   t.equals(req.app.locals.id, 3)
   t.end()
+})
+
+test('routes.index responds with index.html', function(t) {
+  var res = { sendFile: sendFile }
+
+  routes.index(null, res)
+
+  function sendFile (file) {
+    t.equals(file, '/Users/apprentice/kereru/simple-server/index.html')
+    t.end()
+  }
 })
