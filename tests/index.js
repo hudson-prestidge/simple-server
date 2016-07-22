@@ -1,7 +1,7 @@
 var test = require('tape')
 var routes = require('../routes')
 
-test('routes.storeId stores an id query in locals', function(t) {
+test('routes.saveIdToLocal stores an id query in locals', function(t) {
   var req = {
     query: {
       id: 3
@@ -13,7 +13,7 @@ test('routes.storeId stores an id query in locals', function(t) {
     }
   }
 
-  routes.storeId(req, null)
+  routes.saveIdToLocal(req, null)
   t.equals(req.app.locals.id, 3)
   t.end()
 })

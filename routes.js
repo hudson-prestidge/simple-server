@@ -1,6 +1,6 @@
 module.exports = {
   index: index,
-  storeId: storeId
+  saveIdToLocal: saveIdToLocal
 }
 
 
@@ -8,6 +8,10 @@ function index(req, res) {
   res.sendFile(__dirname + '/index.html')
 }
 
-function storeId (req, res) {
+function saveIdToLocal (req, res) {
   req.app.locals.id = req.query.id
+}
+
+function paramsTest (req, res) {
+  res.send(req.params.id)
 }
